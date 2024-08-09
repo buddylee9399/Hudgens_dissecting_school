@@ -1,0 +1,37 @@
+<div class="flex-space-between">
+  <div class="flex-base">
+    <div class="user-avatar">
+      <%= link_to profile_path(profile.id) do %>
+        <%= gravatar_image_tag(profile.email, alt: profile.username) %>
+      <% end %>
+    </div>
+    <div class="guide-title">
+      <%= link_to profile_path(profile.id) do %>
+        <%= profile.username %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex-base">
+    <div class="topic-counter">
+      <%= profile.guides.size %> guides
+    </div>
+
+    <div class="follow-button-wrapper">
+      <% if current_user %>
+
+        <% if current_user.is_following? profile.id %>
+          <button class="btn-primary following-btn" data-user-id="<%= profile.id %>">Following</button>
+        <% elsif current_user.is_being_followed_by? profile.id %>
+          <button class="btn-primary follow-btn" data-user-id="<%= profile.id %>">Follow Back</button>
+        <% elsif !current_user.is_being_followed_by?(profile.id) && !current_user.is_following?(profile.id) %>
+          <button class="btn-primary follow-btn" data-user-id="<%= profile.id %>">Follow</button>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <button class="btn-primary follow-btn">Login to follow</button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

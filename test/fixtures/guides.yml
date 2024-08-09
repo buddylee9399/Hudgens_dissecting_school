@@ -1,0 +1,40 @@
+# == Schema Information
+#
+# Table name: guides
+#
+#  id           :integer          not null, primary key
+#  content      :text
+#  live_updates :boolean          default(FALSE)
+#  status       :integer
+#  title        :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  topic_id     :integer          not null
+#  user_id      :integer          not null
+#
+# Indexes
+#
+#  index_guides_on_topic_id  (topic_id)
+#  index_guides_on_user_id   (user_id)
+#
+# Foreign Keys
+#
+#  topic_id  (topic_id => topics.id)
+#  user_id   (user_id => users.id)
+#
+
+one:
+  title: MyString
+  content: MyText
+  topic: one
+  user: one
+  status: 1
+  live_updates: false
+
+two:
+  title: MyString
+  content: MyText
+  topic: two
+  user: two
+  status: 1
+  live_updates: false

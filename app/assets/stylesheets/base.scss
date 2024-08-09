@@ -1,0 +1,32 @@
+@import 'variables';
+body,
+html {
+  margin: 0;
+  font-family: 'LatoRegular';
+}
+
+a {
+  color: $primary;
+  transition: 0.5s ease-in-out;
+  text-decoration: none;
+  font-family: 'LatoRegular';
+
+  &:hover {
+    color: $primary-dark;
+  }
+}
+
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 21px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "LatoBold";
+  color: $medium-charcoal;
+}

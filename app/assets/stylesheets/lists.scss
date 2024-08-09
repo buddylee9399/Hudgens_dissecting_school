@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'mixins/grids';
+.list-container {
+  @include base-grid();
+
+  &__item {
+    @include base-grid();
+    grid-template-columns: 119px 1fr;
+    grid-gap: 20px;
+
+    &__content {
+      font-family: $font-regular;
+    }
+  }
+}

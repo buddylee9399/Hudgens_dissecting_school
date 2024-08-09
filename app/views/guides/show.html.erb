@@ -1,0 +1,29 @@
+<div class="guide">
+  <div class="guide-title">
+    <%= @guide.title %>
+  </div>
+
+  <div>
+    <div class="topic-for-guide">
+      <%= link_to @guide.topic.title, topic_path(@guide.topic) %>
+    </div>
+
+    <div class="guide__metadata">
+      <div class="guide-timestamp">
+        <%= guide_timestamp(@guide) %>
+      </div>
+
+      <div class="guide-actions">
+        <%= guide_actions(@guide) %>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <%= guide_banner(@guide) %>
+  </div>
+
+  <div class="guide__content" id="guide-show" data-guide-id="<%= @guide.id %>">
+    <%= @guide.content %>
+  </div>
+</div>

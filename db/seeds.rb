@@ -10,26 +10,20 @@ def create_site_admin
   puts "1 site admin created"
 end
 
-def create_admin
+
   
-  1.times do |a|
-    User.create(email: "admin1@ex.com",
+admin = User.create(email: "admin1@ex.com",
                 password: 'asdfasdf',
                 password_confirmation: 'asdfasdf',
-                first_name: "Admin",
-                last_name: "User")
-  end
+                first_name: "Admin1",
+                last_name: "User",
+                role: "admin")
 
-  puts "1 admin created"  
+puts "1 admin created"  
 
-  user = User.find(2)
-  user.add_role :admin
-
-  puts "Added admin role to first user"
-end
 
 def create_users
-  5.times do |u|
+  50.times do |u|
     User.create(email: "user#{u+1}@ex.com",
                 password: 'asdfasdf',
                 password_confirmation: 'asdfasdf',
@@ -40,6 +34,49 @@ def create_users
   puts "#{User.count} users created"
 end
 
-create_site_admin
-create_admin
+# create_site_admin
+
 create_users
+
+10.times do
+  Topic.create!(
+    title: Faker::ProgrammingLanguage.unique.name
+  )
+end
+
+puts "10 Topics created"
+
+100.times do
+  Guide.create!(
+    title: Faker::ChuckNorris.fact.truncate(150),
+    content: Faker::Books::Lovecraft.paragraphs,
+    topic: Topic.all.sample,
+    user: User.all.sample
+  )
+end
+
+puts "100 guides created"
+
+
+
+10.times do
+  Guide.create!(
+    title: Faker::ChuckNorris.fact.truncate(150),
+    content: Faker::Books::Lovecraft.paragraphs,
+    topic: Topic.all.sample,
+    user: admin
+  )
+end
+
+puts "Guides created for admin"
+
+User.all.each do |user|
+  if user.id != admin.id
+    Following.create!(
+      follower_id: user.id,
+      followed_id: admin.id
+    )
+  end
+end
+
+puts "Followings created for admin"

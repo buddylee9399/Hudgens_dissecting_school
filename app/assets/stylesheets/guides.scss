@@ -1,0 +1,66 @@
+@import 'variables';
+.guide-title {
+  font-family: $font-bold;
+  font-size: 22px;
+  a {
+    color: black;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.topic-for-guide {
+  font-family: $font-bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin: 5px 0px;
+}
+
+.guide-timestamp {
+  color: $light-charcoal;
+  font-size: 0.9rem;
+}
+
+.guide-banner {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.guide {
+  width: 660px;
+
+  &__content {
+    margin: 30px 0px;
+  }
+
+  &__metadata {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.guide-actions {
+  margin: 10px 0px;
+  display: grid;
+  grid-template-columns: 20px 20px;
+  grid-gap: 10px;
+}
+
+.guide-thumb img {
+  border-radius: 5px;
+  object-fit: cover;
+  width: 119px;
+  height: 84px;
+}
+
+.guide-form-image {
+  margin: 20px 0px;
+  .guide-thumb {
+    margin-right: 30px;
+  }
+}

@@ -1,0 +1,28 @@
+@import 'variables';
+.nav-icon,
+.nav-icon-lg {
+  path {
+    fill: $highlight !important;
+    transition: 0.5s ease-in-out;
+  }
+
+  &:hover {
+    color: $primary;
+    path {
+      fill: $primary !important;
+    }
+  }
+}
+
+.nav-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18px;
+  width: 18px;
+}
+
+.nav-icon-lg {
+  height: 21px;
+  width: 21px;
+}

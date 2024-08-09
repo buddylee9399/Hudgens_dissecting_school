@@ -1,0 +1,23 @@
+<div class="list-container__item">
+  <div class="guide-thumb">
+    <%= link_to guide do %>
+      <%= guide_thumb(guide) %>
+    <% end %>
+  </div>
+
+  <div class="list-container__item__content">
+    <div class="guide-title">
+      <%= link_to guide do %>
+        <%= guide.title.truncate(70) %>
+      <% end %>
+    </div>
+
+    <div class="topic-for-guide">
+      <%= link_to guide.topic.title, topic_path(guide.topic) %>
+    </div>
+
+    <div class="guide-timestamp">
+      <%= guide_timestamp(guide) %>
+    </div>
+  </div>
+</div>

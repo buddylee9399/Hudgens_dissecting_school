@@ -1,0 +1,75 @@
+<div class="nav-wrapper">
+  <div class="nav-wrapper__left">
+    <div class="nav-wrapper__left__logo">
+      <%= link_to root_path do %>
+        <%= image_tag("logo.png") %>
+      <% end %>
+    </div>
+
+    <% if current_user %>
+      <div class="nav-wrapper__left__link">
+        <%= link_to root_path do %>
+          <%= inline_svg('my-feed.svg', class: 'nav-icon') %>
+          <span>My Feed</span>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="nav-wrapper__left__link">
+      <%= link_to topics_path do %>
+        <%= inline_svg('catagories.svg', class: 'nav-icon') %>
+        <span>Topics</span>
+      <% end %>
+    </div>
+
+    <div class="nav-wrapper__left__link">
+      <%= link_to profiles_path do %>
+        <%= inline_svg('users.svg', class: 'nav-icon') %>
+        <span>Users</span>
+      <% end %>
+    </div>
+
+    <div class="nav-wrapper__left__link">
+      <%= link_to guides_path do %>
+        <%= inline_svg('posts.svg', class: 'nav-icon') %>
+        <span>Posts</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="nav-wrapper__search">
+    <%= form_with url: search_query_path, method: :get, local: true do |f| %>
+      <span class="search-wrapper">
+        <span id="search-icon-id" class="fa fa-search"></span>
+        <%= f.text_field :q, id: :q, class: 'search-box', placeholder: 'What do you want to learn today?' %>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="nav-wrapper__right">
+    <% if current_user %>
+      <div class="nav-wrapper__right__link">
+        <%= link_to new_guide_path, class: "btn-primary" do %>
+          New Post
+        <% end %>
+      </div>
+
+      <div class="nav-wrapper__right__avatar">
+        <%= link_to profile_path(current_user) do %>
+          <%= gravatar_image_tag(current_user.email, alt: current_user.username) %>
+        <% end %>
+      </div>
+
+      <div class="nav-wrapper__right__link">
+        <%= button_to destroy_user_session_path, method: :delete do %>
+          <%= inline_svg('logout.svg', class: 'nav-icon-lg') %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="nav-wrapper__right__link">
+        <%= link_to "Login", new_user_session_path, class: "btn-primary" %>
+        <%= link_to "Register", new_user_registration_path, class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

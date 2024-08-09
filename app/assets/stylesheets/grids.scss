@@ -1,0 +1,9 @@
+@import 'mixins/grids';
+.grid-1 {
+  @include base-grid();
+}
+
+.grid-2 {
+  @include base-grid();
+  grid-template-columns: 1fr 1fr;
+}

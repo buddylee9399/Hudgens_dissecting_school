@@ -1,0 +1,11 @@
+<div class="flex-space-between">
+  <div class="guide-title">
+    <%= link_to topic do %>
+      <%= topic.title %>
+    <% end %>
+  </div>
+
+  <div class="topic-counter">
+    <%= topic.guides.size %> guides
+  </div>
+</div>

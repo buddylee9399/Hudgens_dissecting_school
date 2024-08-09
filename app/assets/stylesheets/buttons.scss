@@ -1,0 +1,28 @@
+@import 'variables';
+.btn-primary,
+.following-btn,
+.follow-btn {
+  padding: 5px 10px;
+  border-radius: $border-radius;
+  background-color: $primary;
+  border: 1px solid $primary-dark;
+  color: white;
+  font-size: 0.8em;
+  font-family: $font-bold;
+  transition: 0.5s ease-in-out;
+
+  &:hover {
+    background-color: $primary-dark;
+    color: white;
+  }
+}
+
+.following-btn {
+  background-color: white;
+  color: $primary;
+
+  &:hover {
+    background-color: $warning;
+    color: white;
+  }
+}
