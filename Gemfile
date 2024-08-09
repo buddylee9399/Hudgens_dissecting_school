@@ -90,3 +90,5 @@ end
 # gem "sassc-rails"
 # gem "image_processing"
   gem "simple_form"
+
+  gem "devise"
