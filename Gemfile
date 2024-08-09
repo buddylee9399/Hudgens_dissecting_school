@@ -89,3 +89,4 @@ end
 # gem "activesupport"
 # gem "sassc-rails"
 # gem "image_processing"
+  gem "simple_form"
