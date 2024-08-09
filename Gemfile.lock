@@ -197,6 +197,7 @@ GEM
       railties (>= 5.2)
     rexml (3.3.4)
       strscan
+    rolify (6.0.1)
     rouge (4.3.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.23.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.8, >= 7.0.8.4)
+  rolify
   selenium-webdriver
   simple_form
   sprockets-rails
